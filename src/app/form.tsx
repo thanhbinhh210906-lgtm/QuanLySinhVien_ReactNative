@@ -120,7 +120,7 @@ export default function StudentFormScreen() {
             </Text>
           </View>
         )}
-        <View style={styles.avatarButtons}>
+                <View style={styles.avatarButtons}>
           <TouchableOpacity style={styles.smallBtn} onPress={pickImage}>
             <Text style={styles.smallBtnText}>🖼️ {i18n.t('fromLibrary')}</Text>
           </TouchableOpacity>
@@ -129,6 +129,20 @@ export default function StudentFormScreen() {
           </TouchableOpacity>
         </View>
       </View>
+
+      {/* Phần thêm mới: Nhập link ảnh */}
+      <Text style={styles.label}>{i18n.t('avatar')} (URL)</Text>
+      <TextInput
+        style={styles.input}
+        value={avatar}
+        onChangeText={setAvatar}
+        placeholder="https://example.com/avatar.jpg"
+        keyboardType="url"
+        autoCapitalize="none"
+      />
+      <Text style={{ fontSize: 12, color: '#888', marginTop: 4, fontStyle: 'italic' }}>
+        {i18n.locale === 'vi' ? 'Dán link ảnh trực tiếp vào đây' : 'Or paste an image URL here'}
+      </Text>
 
       <Text style={styles.label}>{i18n.t('fullName')} *</Text>
       <TextInput
